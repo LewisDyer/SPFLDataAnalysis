@@ -8,6 +8,7 @@ This program scrapes data from [Soccerbot](http://soccerbot.com/), a website con
 
 ## Future Improvements/Refinements
 
+* Fix the current scraper - at the moment, the Soccerbot scraper isn't fully functional - once given a file it gets the requirement information, but at the moment this involves saving the page data to a file in the program directory, which is not ideal.
 * Improve plotting - right now I have a basic plot, but it can be a little messy with many teams. I'd like to allow the user to hover over a point in time and see the standings at that point, along with clearing up the real estate of the graph.
 * Goal distribution - I'd like to graph at which points goals are scored. Do teams tend to score a lot at the beginning of the halves when they're rested, or at the end of halves when they're tired and lacking on defense? Or is there some other pattern entirely (even none at all)?
 * More scrapers - I'd like to develop different scrapers for different websites, including different leagues and more recent data.
