@@ -1,5 +1,7 @@
 #This script gets data from soccerbot (in the folder), and produces a list of fixtures, showing the teams involved, and the score at various points in the game
 
+#UPDATE (11/08/19) - Due to being outdated, I'm stopping work on the soccerbot scraper, and shifting towards a BBC Sport scraper.
+
 import re
 from bs4 import BeautifulSoup
 
@@ -65,5 +67,7 @@ def parse(filename):
                         "away": fixture_info[3].string,
                         "score_time": cum_score}
         fixture_summary.append(fixture_dict)
-
+    print(fixture_summary)
     return fixture_summary
+
+parse("spd13.html")

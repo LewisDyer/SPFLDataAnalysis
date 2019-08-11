@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 def plot_results(fixtures):
     teams = defaultdict(list)
 
-    for i in range(1, 91):
+    for i in range(1, 101):
         results = panm(i, fixtures)
         #print(results)
 
@@ -15,7 +15,7 @@ def plot_results(fixtures):
             teams[team].append(results[team])
     
     for team in sorted(teams.items(), reverse=True, key=lambda x: x[1]):
-        minutes = [i for i in range(1, 91)]
+        minutes = [i for i in range(1, 101)]
         plt.plot(minutes, team[1], label=team[0])
         plt.legend(loc='upper left')
     plt.show()
