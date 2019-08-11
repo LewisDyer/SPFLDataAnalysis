@@ -34,7 +34,7 @@ def parse(start_month, end_month):
     fixture_summary = []
     driver = webdriver.Chrome()
     for month in months:
-        url = f"https://www.bbc.co.uk/sport/football/scottish-premiership/scores-fixtures/{month}?filter=results" #start with august results only...
+        url = f"https://www.bbc.co.uk/sport/football/scottish-championship/scores-fixtures/{month}?filter=results" #start with august results only...
 
         
         driver.get(url)
@@ -51,6 +51,13 @@ def parse(start_month, end_month):
 
 
         for match in matches:
+            match_block = match.find_parent("div", {"class": "qa-match-block"})
+
+            titles = match_block.findAll("h4")
+            print(titles)
+            if titles != []:
+                print("play off game - skip this game...")
+                continue
             teams = match.findAll("span", {"class": "gs-u-display-none gs-u-display-block@m qa-full-team-name sp-c-fixture__team-name-trunc"})
 
             home_team = teams[0].text
@@ -125,6 +132,7 @@ def parse(start_month, end_month):
             fixture = {'home': home_team,
                     'away': away_team,
                     'score_time': score_time}
+            print(fixture)
             fixture_summary.append(fixture)
         print(month + "IS DONE")
 
